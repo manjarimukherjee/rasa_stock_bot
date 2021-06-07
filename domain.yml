@@ -1,0 +1,49 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+- welcome_greet
+- init_request_stock
+- init_request_metal
+- response_name_company
+- response_name_metal
+- show_chart
+- response_negative
+- response_positive
+entities:
+- company_name
+- metal_name
+
+slots:
+  company_name:
+    type: text
+  metal_name:
+    type: text
+  image_loc:
+    type: unfeaturized
+
+
+responses:
+   utter_welcome_greet:
+   - text: Hello There! My name is stockify. How can I help you sir?
+   utter_init_request_stock:
+   - text: okay!! Please let me know the name of the stock you want to know about.
+   utter_init_request_metal:
+   - text: okay!! Please let me know the name of the metal you want to know about.
+   utter_did_that_help:
+   - text: "Did that help you?"
+   utter_iamabot:
+   - text: "I am a bot, powered by Rasa."
+   utter_show_chart:
+   - text: {image_loc}
+actions:
+- utter_welcome_greet
+- utter_init_request_stock
+- utter_init_request_metal
+- utter_did_that_help
+- utter_iamabot   
+- utter_show_chart
+- action_hello_world
+- action_hello
+- action_chart
